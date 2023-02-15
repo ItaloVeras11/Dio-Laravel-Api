@@ -13,6 +13,37 @@ class BandController extends Controller
         return response()->json($bands);
     }
 
+    public function getById($id){
+        $band = null;
+
+        foreach($this->getBands() as $_band){
+            if($_band['id'] == $id){
+                 $band = $_band;
+            }
+
+        }
+
+        return $band ? response()->json($band) : abort(404);
+    }
+
+
+    public function getBandsByGender($gender){
+        
+        $bands = [];
+
+        foreach($this->getBands() as $_band){
+            if($_band['gender'] == $gender){
+                $bands[] = $_band;
+            }
+
+        }
+
+        return response()->json($bands);
+
+
+    }
+
+
     protected function getBands(){
 
         return [

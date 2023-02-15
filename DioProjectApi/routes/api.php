@@ -29,6 +29,11 @@ Route::post('hello-post/{name}', [HelloWordController::class, 'hello']);
 
 Route::get('bands', [BandController::class, 'getAll']);
 
+Route::get('bands/{id}', [BandController::class, 'getById']);
+
+Route::get('bands/gender/{id}', [BandController::class, 'getBandsByGender']);
+
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
