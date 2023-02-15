@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('hello/{name}', function($name){
+    
+    return 'hello' . $name; 
+});
+
+Route::post('hello-post', function(){
+   
+    return 'hello post';
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
